@@ -69,5 +69,6 @@ public class AdminController {
         }
         userService.save(user);
         return "redirect:/admin";
+
     }
 }

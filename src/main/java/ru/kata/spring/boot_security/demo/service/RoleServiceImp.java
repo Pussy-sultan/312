@@ -37,6 +37,7 @@ public class RoleServiceImp implements RoleService {
         Role currentRole = roleRepository.findByName(name);
         if (currentRole == null) {
             roleRepository.save(new Role(name));
+
         }
     }
 }
