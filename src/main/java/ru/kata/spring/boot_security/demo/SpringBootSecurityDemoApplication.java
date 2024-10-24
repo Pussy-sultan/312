@@ -16,7 +16,6 @@ import java.util.Set;
 
 @SpringBootApplication
 public class SpringBootSecurityDemoApplication {
-
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringBootSecurityDemoApplication.class, args);
 		initApplicationDefault(context);
@@ -34,9 +33,9 @@ public class SpringBootSecurityDemoApplication {
 		if (user == null) {
 			Set<Role> roleList = roleService.findAll();
 			User newUser = new User(
-					"Admin",
+					"admin",
 					"admin@mail.ru",
-					bCryptPasswordEncoder.encode("admin")
+					"admin"
 			);
 			newUser.setRoles(roleList);
 			userService.save(newUser);
@@ -47,9 +46,9 @@ public class SpringBootSecurityDemoApplication {
 			Set<Role> roleList = new HashSet<>();
 			roleList.add(roleService.findByName("ROLE_USER"));
 			User newUser = new User(
-					"User1",
+					"user",
 					"user1@mail.ru",
-					bCryptPasswordEncoder.encode("user")
+					"user"
 			);
 			newUser.setRoles(roleList);
 			userService.save(newUser);
